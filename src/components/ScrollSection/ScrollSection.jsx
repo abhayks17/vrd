@@ -3,6 +3,7 @@ import ServicesBlock from './ServicesBlock';
 import ContactBlock from './ContactBlock';
 import FaqBlock from './FaqBlock';
 import './ScrollSection.css';
+import Footer from '../../components/Footer/Footer'
 
 const PANELS = [
     { id: 'services', label: 'Services' },
@@ -101,6 +102,8 @@ export default function ScrollSection({ heroContent }) {
             <SnapPanel id="services" onActive={handleActive}><ServicesBlock /></SnapPanel>
             <SnapPanel id="contact" onActive={handleActive}><ContactBlock /></SnapPanel>
             <SnapPanel id="faq" onActive={handleActive}><FaqBlock /></SnapPanel>
+                        <SnapPanel id="footer" onActive={handleActive}><Footer /></SnapPanel>
+
         </div>
     );
 }

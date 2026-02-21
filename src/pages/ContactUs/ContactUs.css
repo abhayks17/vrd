@@ -1,9 +1,8 @@
 /* ===========================
    Contact Us Page
    =========================== */
-.contact-page {
-    background: var(--off-white);
-    padding-bottom: 5rem;
+.contact-page{
+  background:var(--off-white);
 }
 
 .contact-layout {

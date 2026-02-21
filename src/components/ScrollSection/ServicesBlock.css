@@ -1,0 +1,36 @@
+.sb-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  min-height:340px;
+  color:white;
+}
+
+/* VIDEO FILL */
+.sb-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s ease;
+}
+
+/* DARK OVERLAY */
+.sb-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+
+/* CONTENT */
+.sb-content{
+  position:relative;
+  z-index:2;
+  padding:24px;
+}
+
+/* NICE HOVER ZOOM */
+.sb-card:hover .sb-video{
+  transform:scale(1.08);
+}

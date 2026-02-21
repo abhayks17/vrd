@@ -1,0 +1,39 @@
+/* FAQ ITEM */
+.faq-item{
+  border-bottom:1px solid var(--gray-200);
+}
+
+/* QUESTION */
+.faq-question{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+  font-size:1.05rem;
+  font-weight:600;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* ANSWER WRAPPER — key fix */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .45s ease, opacity .35s ease;
+  opacity:0;
+}
+
+/* OPEN STATE */
+.faq-item.open .faq-answer{
+  max-height:300px; /* large enough */
+  opacity:1;
+}
+
+/* ANSWER TEXT */
+.faq-answer p{
+  padding-bottom:18px;
+  color:var(--gray-600);
+  line-height:1.7;
+}

@@ -118,3 +118,7 @@
         text-align: center;
     }
 }
+.footer {
+  width: 100%;
+  margin-top: auto;   /* pushes bottom */
+}

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 import RevealText from '../../components/Revealtext'
 import ScrollSection from '../../components/ScrollSection/ScrollSection'
-
 export default function Home() {
     const videoRef = useRef(null)
 
@@ -25,13 +24,17 @@ export default function Home() {
             <div className="hero-overlay" />
 
             <div className="hero-content">
-                <RevealText
-                    delay={200}
-                    lines={[
-                        <>Transforming businesses with quality and cost savings</>,
-                        <>Welcome to <span className="highlight">VRD Groups</span></>
-                    ]}
-                />
+             <RevealText
+  delay={200}
+  lines={[
+    <span className="hero-line-small">
+      Transforming businesses with quality and cost savings
+    </span>,
+    <span className="hero-line-big">
+      Welcome to <span className="hero-brand">VRD Groups</span>
+    </span>
+  ]}
+/>
 
                 <p className="hero-description reveal-fade" style={{ animationDelay: '0.9s' }}>
                     At VRD Groups, we help businesses reduce operational costs without compromising on quality.

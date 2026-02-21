@@ -487,3 +487,28 @@
         transform: translateY(0);
     }
 }
+
+/* HERO TEXT BIG BLUE */
+
+.hero-line-small{
+  display:block;
+  font-size:clamp(1.2rem,2vw,1.6rem);
+  font-weight:300;
+  color:rgba(255,255,255,0.9);
+  margin-bottom:.6rem;
+}
+
+/* BIG TITLE */
+.hero-line-big{
+  display:block;
+  font-size:clamp(3rem,6vw,5rem);
+  font-weight:600;
+  line-height:1.05;
+  color:#14c8c7;
+  letter-spacing:-0.02em;
+}
+
+/* BRAND PART */
+.hero-brand{
+  color:#14c8c7;
+}

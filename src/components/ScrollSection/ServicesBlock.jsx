@@ -1,53 +1,119 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { useRef, useEffect } from 'react'
+import './ServicesBlock.css'
 
 const services = [
-    {
-        id: 'janitorial',
-        icon: '🧹',
-        title: 'Janitorial Service',
-        desc: `VRD Groups, headquartered in Markham, Ontario, has been providing high-quality janitorial services for over five years across Ontario and Manitoba. They specialize in comprehensive cleaning solutions tailored to various facilities, ensuring cleanliness and hygiene standards are met consistently.`,
-    },
-    {
-        id: 'delivery',
-        icon: '🚚',
-        title: 'Dedicated Delivery Service',
-        desc: `For the past five years, VRD Groups has proudly served businesses and communities across Ontario and Manitoba with reliable, on-time, and professional dedicated delivery services built on trust, efficiency, and commitment.`,
-    },
-    {
-        id: 'material',
-        icon: '📦',
-        title: 'Material Supply & Procurement',
-        desc: `At VRD Groups, we specialize in delivering premium-quality materials to meet the demands of a wide range of industries across Ontario and Manitoba, with a focus on durability, performance, and timely delivery.`,
-    },
-    {
-        id: 'warehousing',
-        icon: '🏭',
-        title: 'Warehousing & Distribution',
-        desc: `VRD Groups has been actively involved in warehousing and logistics operations across Ontario and Manitoba for the past 5 years, with state-of-the-art facilities designed to meet the evolving needs of businesses across various sectors.`,
-    },
-];
+  {
+    id: 'janitorial',
+    title: 'Janitorial Service',
+    video: '/janitorial.mp4',
+    desc: 'VRD Groups delivers top-tier janitorial services across Ontario & Manitoba.'
+  },
+  {
+    id: 'delivery',
+    title: 'Dedicated Delivery Service',
+    video: '/delivery.mp4',
+    desc: 'For the past five years VRD Groups has provided reliable dedicated delivery solutions.'
+  },
+  {
+    id: 'material',
+    title: 'Material Supply & Procurement',
+    video: '/material.mp4',
+    desc: 'At VRD Groups, we specialize in end-to-end material supply and procurement.'
+  },
+  {
+    id: 'warehousing',
+    title: 'Warehousing & Distribution',
+    video: '/warehouse.mp4',
+    desc: 'VRD Groups has been actively involved in warehousing and distribution.'
+  }
+]
 
 export default function ServicesBlock() {
-    return (
-        <div className="sb-root container">
-            <div className="reveal-up">
-                <div className="section-tag">What We Do</div>
-                <h2 className="section-title">Our Services</h2>
-                <p className="section-subtitle">
-                    Five years of delivering excellence across Ontario &amp; Manitoba.
-                </p>
-            </div>
+  const videoRefs = useRef([])
+  const rootRef = useRef(null)
 
-            <div className="sb-grid">
-                {services.map((s, i) => (
-                    <div key={s.id} className="sb-card reveal-up" style={{ transitionDelay: `${0.1 + i * 0.1}s` }}>
-                        <div className="sb-icon">{s.icon}</div>
-                        <h3>{s.title}</h3>
-                        <p>{s.desc}</p>
-                        <Link to={`/services/${s.id}`} className="sb-link">Learn more →</Link>
-                    </div>
-                ))}
-            </div>
+  // Self-contained reveal: works whether inside snap-section or a standalone page
+  useEffect(() => {
+    const el = rootRef.current
+    if (!el) return
+    const items = el.querySelectorAll('.reveal-up')
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          items.forEach(item => item.classList.add('visible'))
+        }
+      },
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  const handleMouseEnter = (i) => {
+    const v = videoRefs.current[i]
+    if (!v) return
+    v.play()
+  }
+
+  const handleMouseLeave = (i) => {
+    const v = videoRefs.current[i]
+    if (!v) return
+    v.pause()
+    v.currentTime = 2
+  }
+
+  return (
+    <div className="sb-root" ref={rootRef}>
+      <div className="container sb-inner">
+        <div className="reveal-up">
+          <h2 className="section-title" style={{ color: '#fff' }}>Our Services</h2>
+          <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            Five years of delivering excellence across Ontario &amp; Manitoba.
+          </p>
         </div>
-    );
+
+        <div className="sb-grid">
+          {services.map((s, i) => (
+            <div
+              key={s.id}
+              className="sb-card reveal-up"
+              style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
+              onMouseEnter={() => handleMouseEnter(i)}
+              onMouseLeave={() => handleMouseLeave(i)}
+            >
+              <video
+                ref={el => {
+                  videoRefs.current[i] = el
+                  if (el) {
+                    // Seek to 2s once metadata is available
+                    el.addEventListener('loadedmetadata', () => {
+                      el.currentTime = 2
+                    }, { once: true })
+                  }
+                }}
+                className="sb-video"
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src={s.video} type="video/mp4" />
+              </video>
+
+              <div className="sb-overlay" />
+
+              <div className="sb-content">
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+                <Link to={`/services/${s.id}`} className="sb-link">
+                  Learn more →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 }

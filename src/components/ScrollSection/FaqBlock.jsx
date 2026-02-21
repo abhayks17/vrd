@@ -15,7 +15,6 @@ export default function FaqBlock() {
     return (
         <div className="faq-root container">
             <div className="reveal-up">
-                <div className="section-tag">Got Questions?</div>
                 <h2 className="section-title">Frequently Asked Questions</h2>
                 <p className="section-subtitle">Everything you need to know about working with VRD Groups.</p>
             </div>
@@ -24,8 +23,7 @@ export default function FaqBlock() {
                 {faqs.map((faq, i) => (
                     <div
                         key={i}
-                        className={`faq-item reveal-up ${open === i ? 'open' : ''}`}
-                        style={{ transitionDelay: `${0.05 + i * 0.07}s` }}
+                        className={`faq-item ${open === i ? 'open' : ''}`}
                     >
                         <button className="faq-question" onClick={() => setOpen(open === i ? null : i)}>
                             <span>{faq.q}</span>

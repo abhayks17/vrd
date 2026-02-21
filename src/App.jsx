@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import Services from './pages/Services/Services'
 import ServiceDetails from './pages/ServiceDetails/ServiceDetails'
@@ -21,7 +20,6 @@ function App() {
             <Route path="/bids-tender" element={<BidsTender />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </BrowserRouter>
   )
