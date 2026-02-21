@@ -1,0 +1,24 @@
+.reveal-wrapper {
+  overflow: hidden;
+}
+
+/* base state */
+.reveal-line {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  filter: blur(6px);
+
+  transition:
+    transform 1s cubic-bezier(.22,1,.36,1),
+    opacity 1s cubic-bezier(.22,1,.36,1),
+    filter 1s cubic-bezier(.22,1,.36,1);
+
+  will-change: transform, opacity, filter;
+}
+
+/* visible */
+.reveal-line.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
