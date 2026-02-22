@@ -32,8 +32,11 @@ const services = [
 export default function ServicesBlock() {
   const videoRefs = useRef([])
   const rootRef = useRef(null)
+  const isMobileRef = useRef(false)
 
-  // Self-contained reveal: works whether inside snap-section or a standalone page
+  useEffect(() => {
+    isMobileRef.current = window.matchMedia('(hover: none)').matches
+  }, [])
   useEffect(() => {
     const el = rootRef.current
     if (!el) return
@@ -50,19 +53,21 @@ export default function ServicesBlock() {
     return () => obs.disconnect()
   }, [])
 
+  // Robust mobile check: either no hover support OR a coarse pointer (touch)
+  const isMobile = window.matchMedia('(hover: none), (pointer: coarse)').matches
+
   const handleMouseEnter = (i) => {
-    const v = videoRefs.current[i]
-    if (!v) return
-    v.play()
+    if (isMobile) return
+    videoRefs.current[i]?.play().catch(() => { })
   }
 
   const handleMouseLeave = (i) => {
+    if (isMobile) return
     const v = videoRefs.current[i]
     if (!v) return
     v.pause()
     v.currentTime = 2
   }
-
   return (
     <div className="sb-root" ref={rootRef}>
       <div className="container sb-inner">
@@ -75,7 +80,8 @@ export default function ServicesBlock() {
 
         <div className="sb-grid">
           {services.map((s, i) => (
-            <div
+            <Link
+              to={`/services/${s.id}`}
               key={s.id}
               className="sb-card reveal-up"
               style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
@@ -85,32 +91,34 @@ export default function ServicesBlock() {
               <video
                 ref={el => {
                   videoRefs.current[i] = el
-                  if (el) {
-                    // Seek to 2s once metadata is available
-                    el.addEventListener('loadedmetadata', () => {
-                      el.currentTime = 2
-                    }, { once: true })
-                  }
                 }}
                 className="sb-video"
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                autoPlay={isMobile}
+                preload="auto"
+                onLoadedMetadata={(e) => {
+                  const v = e.currentTarget
+                  v.muted = true // Ensure muted is forced for autoplay
+                  v.currentTime = 2
+                  if (isMobile) {
+                    v.play().catch(() => { })
+                  }
+                }}
               >
                 <source src={s.video} type="video/mp4" />
               </video>
-
               <div className="sb-overlay" />
 
               <div className="sb-content">
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <Link to={`/services/${s.id}`} className="sb-link">
+                <div className="sb-link">
                   Learn more →
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

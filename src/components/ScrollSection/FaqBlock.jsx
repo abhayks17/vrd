@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './FaqBlock.css';
 const faqs = [
     { q: 'What areas do you serve?', a: 'VRD Groups currently operates across Ontario and Manitoba, with headquarters in Markham, Ontario.' },
     { q: 'How long has VRD Groups been in business?', a: 'We have been delivering premium services for over 5 years, building a strong reputation for reliability and quality.' },
@@ -13,7 +13,7 @@ export default function FaqBlock() {
     const [open, setOpen] = useState(null);
 
     return (
-        <div className="faq-root container">
+        <div className="faq-root-container">
             <div className="reveal-up">
                 <h2 className="section-title">Frequently Asked Questions</h2>
                 <p className="section-subtitle">Everything you need to know about working with VRD Groups.</p>

@@ -14,9 +14,41 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 40)
+        // Fallback for regular pages
+        const onScroll = () => {
+            if (window.scrollY > 40) setScrolled(true)
+            else {
+                const snapPage = document.querySelector('.snap-page')
+                if (!snapPage || snapPage.scrollTop <= 40) setScrolled(false)
+            }
+        }
         window.addEventListener('scroll', onScroll)
-        return () => window.removeEventListener('scroll', onScroll)
+
+        // Intersection Observer for Hero (Home page)
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // If hero is NOT intersecting, we are "scrolled"
+                setScrolled(!entry.isIntersecting)
+            },
+            { threshold: 0.1 }
+        )
+
+        const hero = document.querySelector('#hero')
+        if (hero) observer.observe(hero)
+
+        // Also watch snap-page scrolls for desktop
+        const snapPage = document.querySelector('.snap-page')
+        const onSnapScroll = () => {
+            if (snapPage.scrollTop > 40) setScrolled(true)
+            else setScrolled(false)
+        }
+        if (snapPage) snapPage.addEventListener('scroll', onSnapScroll)
+
+        return () => {
+            window.removeEventListener('scroll', onScroll)
+            observer.disconnect()
+            if (snapPage) snapPage.removeEventListener('scroll', onSnapScroll)
+        }
     }, [])
 
     const closeMenu = () => setMenuOpen(false)

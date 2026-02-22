@@ -111,14 +111,20 @@
 @media (max-width: 560px) {
     .footer-grid {
         grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
+
+    .footer-contact-item span {
+        word-break: break-word;
+    }
 }
+
 .footer {
-  width: 100%;
-  margin-top: auto;   /* pushes bottom */
+    width: 100%;
+    margin-top: auto;
 }

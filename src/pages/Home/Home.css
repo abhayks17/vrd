@@ -450,6 +450,54 @@
     }
 }
 
+/* Mobile hero fixes */
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+
+    .hero-stats {
+        gap: 1.25rem;
+        padding-top: 1.25rem;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .hero-description {
+        font-size: 0.98rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding-top: 5.5rem;
+    }
+
+    .hero-line-small {
+        font-size: 1rem;
+    }
+
+    .hero-line-big {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
+    .hero-stats {
+        gap: 1rem;
+    }
+}
+
 /* HERO */
 .home-hero {
     position: relative;
@@ -490,25 +538,25 @@
 
 /* HERO TEXT BIG BLUE */
 
-.hero-line-small{
-  display:block;
-  font-size:clamp(1.2rem,2vw,1.6rem);
-  font-weight:300;
-  color:rgba(255,255,255,0.9);
-  margin-bottom:.6rem;
+.hero-line-small {
+    display: block;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: .6rem;
 }
 
 /* BIG TITLE */
-.hero-line-big{
-  display:block;
-  font-size:clamp(3rem,6vw,5rem);
-  font-weight:600;
-  line-height:1.05;
-  color:#14c8c7;
-  letter-spacing:-0.02em;
+.hero-line-big {
+    display: block;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #14c8c7;
+    letter-spacing: -0.02em;
 }
 
 /* BRAND PART */
-.hero-brand{
-  color:#14c8c7;
+.hero-brand {
+    color: #14c8c7;
 }

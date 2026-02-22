@@ -6,11 +6,11 @@ import './ScrollSection.css';
 import Footer from '../../components/Footer/Footer'
 
 const PANELS = [
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'faq', label: 'FAQ' },
+  { id:'services',label:'Services'},
+  { id:'contact',label:'Contact'},
+  { id:'faq',label:'FAQ'},
+  { id:'footer',label:'Footer'} // ⭐ add this
 ];
-
 /** Watches an element and toggles .visible on all .reveal-up children inside it */
 function useRevealObserver(ref) {
     useEffect(() => {
@@ -52,18 +52,22 @@ function SnapPanel({ id, children, onActive }) {
         </section>
     );
 }
-
-export default function ScrollSection({ heroContent }) {
+export default function ScrollSection({ heroContent }){
     const [active, setActive] = useState('hero');
     const containerRef = useRef(null);
 
     const handleActive = useCallback((id) => setActive(id), []);
 
-    const scrollToPanel = (id) => {
-        const el = containerRef.current?.querySelector(`#${id}`);
-        el?.scrollIntoView({ behavior: 'smooth' });
-    };
+    /* ⭐ THEME SWITCH — MUST BE HERE */
+    useEffect(() => {
+        document.body.classList.remove('header-dark','header-light')
 
+        if (active === 'faq' || active === 'footer') {
+            document.body.classList.add('header-dark')
+        } else {
+            document.body.classList.add('header-light')
+        }
+    }, [active]);
     /* hero panel active detection */
     useEffect(() => {
         const heroEl = containerRef.current?.querySelector('#hero');
