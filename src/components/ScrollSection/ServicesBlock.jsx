@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './ServicesBlock.css'
 
 const services = [
@@ -30,6 +30,7 @@ const services = [
 ]
 
 export default function ServicesBlock() {
+  const [loaded, setLoaded] = useState({})
   const videoRefs = useRef([])
   const rootRef = useRef(null)
   const isMobileRef = useRef(false)
@@ -101,7 +102,10 @@ export default function ServicesBlock() {
                 onLoadedMetadata={(e) => {
                   const v = e.currentTarget
                   v.muted = true // Ensure muted is forced for autoplay
-                  v.currentTime = 2
+                  if (window.matchMedia('(hover: hover)').matches) {
+                    v.currentTime = 2
+                  }
+                  setLoaded(prev => ({ ...prev, [i]: true }))
                   if (isMobile) {
                     v.play().catch(() => { })
                   }
@@ -109,6 +113,9 @@ export default function ServicesBlock() {
               >
                 <source src={s.video} type="video/mp4" />
               </video>
+              <div className={`sb-loader ${loaded[i] ? 'hide' : ''}`}>
+                <div className="sb-spinner" />
+              </div>
               <div className="sb-overlay" />
 
               <div className="sb-content">

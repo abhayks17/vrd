@@ -37,6 +37,38 @@
   transform: scale(1.08);
 }
 
+/* LOADER */
+.sb-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background: #0b1218;
+  transition: opacity .5s ease;
+}
+
+.sb-loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sb-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, .1);
+  border-top: 3px solid #14c8c7;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 768px) {
   .sb-card {
     min-height: 140px !important;
