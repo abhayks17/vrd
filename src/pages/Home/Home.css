@@ -19,7 +19,7 @@
     top: -10%;
     width: 60%;
     height: 120%;
-    background: radial-gradient(ellipse at center, rgba(232, 161, 0, 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -40,9 +40,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(232, 161, 0, 0.15);
-    border: 1px solid rgba(232, 161, 0, 0.35);
-    color: var(--accent-light);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -61,7 +61,7 @@
 }
 
 .hero-title .highlight {
-    color: var(--accent);
+    color: #fff;
 }
 
 .hero-description {
@@ -316,9 +316,9 @@
 }
 
 .why-us .section-tag {
-    background: rgba(232, 161, 0, 0.15);
-    border-color: rgba(232, 161, 0, 0.3);
-    color: var(--accent-light);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
 .why-us .section-title {
@@ -548,21 +548,22 @@
 }
 
 /* LOADER */
-.hero-loader{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:5;
-  background:#0b0f14;
-  transition:opacity .5s ease;
+.hero-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background: #0b0f14;
+    transition: opacity .5s ease;
 }
 
-.hero-loader.hide{
-  opacity:0;
-  pointer-events:none;
+.hero-loader.hide {
+    opacity: 0;
+    pointer-events: none;
 }
+
 .loader-spinner {
     width: 44px;
     height: 44px;
@@ -604,10 +605,13 @@
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 600;
     line-height: 1.05;
-    color: #14c8c7;
+    color: #fff;
     letter-spacing: -0.02em;
 }
 
 .hero-brand {
-    color: #14c8c7;
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
 }

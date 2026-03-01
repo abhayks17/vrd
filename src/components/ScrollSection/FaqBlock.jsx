@@ -3,7 +3,7 @@ import './FaqBlock.css';
 const faqs = [
     { q: 'What areas do you serve?', a: 'VRD Groups currently operates across Ontario and Manitoba, with headquarters in Markham, Ontario.' },
     { q: 'How long has VRD Groups been in business?', a: 'We have been delivering premium services for over 5 years, building a strong reputation for reliability and quality.' },
-    { q: 'What services does VRD Groups offer?', a: 'Janitorial Cleaning, Dedicated Delivery, Material Supply & Procurement, and Warehousing & Distribution.' },
+    { q: 'What services does VRD Groups offer?', a: 'Sanitory Service / Property Management, Dedicated Delivery, Material Supply & Procurement, and Warehousing & Distribution.' },
     { q: 'How do I request a quote?', a: 'Fill out the contact form or call us directly. Our team will respond within 24 hours with a customized proposal.' },
     { q: 'Are your services available for small businesses?', a: 'Absolutely. We work with businesses of all sizes, offering flexible and scalable solutions.' },
     { q: 'Do you offer customized service packages?', a: 'Yes. We tailor our services to fit your specific requirements, timelines, and budget.' },

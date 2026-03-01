@@ -6,50 +6,50 @@ import { useRef, useEffect, useState } from 'react'
 export default function Home() {
   const videoRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
-useEffect(() => {
-  const v = videoRef.current
-  if (!v) return
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
 
-  const handleLoaded = () => {
-    v.muted = true
-if (window.matchMedia('(hover: hover)').matches) {
-  v.currentTime = 1
-}    setLoaded(true)
-  }
+    const handleLoaded = () => {
+      v.muted = true
+      if (window.matchMedia('(hover: hover)').matches) {
+        v.currentTime = 1
+      } setLoaded(true)
+    }
 
-  if (v.readyState >= 3) {
-    handleLoaded()
-  } else {
-    v.addEventListener('canplay', handleLoaded, { once: true })
-  }
+    if (v.readyState >= 3) {
+      handleLoaded()
+    } else {
+      v.addEventListener('canplay', handleLoaded, { once: true })
+    }
 
-  const timeout = setTimeout(handleLoaded, 3000)
+    const timeout = setTimeout(handleLoaded, 3000)
 
-  return () => clearTimeout(timeout)
-}, [])   // ⭐ empty
+    return () => clearTimeout(timeout)
+  }, [])   // ⭐ empty
   /* Hero content passed into ScrollSection as the first snap panel */
   const heroContent = (
     <section className="home-hero">
 
       {/* VIDEO */}
       <video
-  ref={videoRef}
-  className="hero-video"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="metadata"
-  poster="/hero-poster.jpg"
->
+        ref={videoRef}
+        className="hero-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/hero-poster.jpg"
+      >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" />
 
       {/* LOADER */}
-    <div className={`hero-loader ${loaded ? 'hide' : ''}`}>
-  <div className="loader-spinner" />
-</div>
+      <div className={`hero-loader ${loaded ? 'hide' : ''}`}>
+        <div className="loader-spinner" />
+      </div>
 
       {/* CONTENT — only after video ready */}
       <div className={`hero-content ${loaded ? 'show' : 'hide'}`}>

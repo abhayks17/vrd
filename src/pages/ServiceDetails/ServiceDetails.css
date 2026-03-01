@@ -1,226 +1,284 @@
-.sd-hero{
-  min-height:60vh;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  display:flex;
-  align-items:center;
+.sd-hero {
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.sd-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
+.sd-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .55);
+  z-index: 1;
 }
 
-.sd-hero-content{
-  position:relative;
-  z-index:2;
-  color:white;
-  max-width:700px;
-  padding:60px;
+.sd-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.sd-content{
-  padding:80px 0;
-  max-width:700px;
-}
-.sd-layout{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:48px;
-  padding:60px 0;
+.sd-hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 700px;
+  padding: 60px;
 }
 
-.sd-info h2{
-  margin-bottom:12px;
+.sd-hero-content h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.1;
 }
 
-.sd-points{
-  margin-top:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+.sd-hero-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: .9;
+  max-width: 600px;
+}
+
+.sd-content {
+  padding: 80px 0;
+  max-width: 700px;
+}
+
+/* CONTENT LAYOUT */
+.sd-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 60px;
+  padding: 80px 0;
+}
+
+.sd-info h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.sd-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* BASE REVEAL ANIMATION */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.5s cubic-bezier(.2, .65, .3, 1);
+}
+
+/* When visible */
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sd-points {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Description */
+
+.sd-points .reveal-up {
+  transition-delay: calc(1.6s + (0.45s * var(--i, 0)));
 }
 
 /* CARD */
-.sd-form{
-  background:#f3f3f5;
-  padding:40px;
-  border-radius:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.12);
+.sd-form {
+  background: #f3f3f5;
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
 }
 
 /* TITLE */
-.sd-form h3{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:20px;
+.sd-form h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 /* FORM GRID */
-.sd-form form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
+.sd-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 
 /* FULL WIDTH FIELDS */
 .sd-form select,
 .sd-form textarea,
-.sd-form button{
-  grid-column:span 2;
+.sd-form button {
+  grid-column: span 2;
 }
 
 /* INPUT STYLE */
 .sd-form input,
 .sd-form select,
-.sd-form textarea{
-  border:none;
-  background:#e9e9ec;
-  padding:14px 16px;
-  border-radius:999px;
-  font-size:14px;
-  outline:none;
-  transition:.25s;
+.sd-form textarea {
+  border: none;
+  background: #e9e9ec;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  outline: none;
+  transition: .25s;
 }
 
 /* TEXTAREA shape */
-.sd-form textarea{
-  border-radius:18px;
-  resize:none;
-  min-height:120px;
+.sd-form textarea {
+  border-radius: 18px;
+  resize: none;
+  min-height: 120px;
 }
 
 /* FOCUS */
 .sd-form input:focus,
 .sd-form select:focus,
-.sd-form textarea:focus{
-  background:#fff;
-  box-shadow:0 0 0 3px rgba(124,90,255,.15);
+.sd-form textarea:focus {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
 }
 
 /* BUTTON */
-.sd-form button{
-  border:none;
-  border-radius:999px;
-  padding:16px;
-  font-weight:600;
-  color:#fff;
-  font-size:15px;
-  cursor:pointer;
-
-  background:linear-gradient(135deg,#7c5cff,#5b8cff);
-  transition:.25s;
+.sd-form button {
+  border: none;
+  border-radius: 999px;
+  padding: 16px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  background: #000;
+  transition: .25s;
 }
 
 /* BUTTON HOVER */
-.sd-form button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(92,92,255,.35);
+.sd-form button:hover {
+  transform: translateY(-2px);
+  background: #222;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
 }
-.sd-form form label{
-  grid-column:span 1;
-  font-size:13px;
-  font-weight:600;
-  color:#666;
-  margin-bottom:4px;
+
+.sd-form form label {
+  grid-column: span 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 4px;
 }
 
 /* ===========================
    SERVICE DETAILS — MOBILE
    =========================== */
-@media (max-width:768px){
+@media (max-width:768px) {
 
   /* HERO */
-  .sd-hero{
-    min-height:48vh;
+  .sd-hero {
+    min-height: 48vh;
   }
 
-  .sd-hero-content{
-    padding:24px 16px;
-    max-width:100%;
+  .sd-hero-content {
+    padding: 24px 16px;
+    max-width: 100%;
   }
 
-  .sd-hero-content h1{
-    font-size:clamp(1.8rem,6vw,2.4rem);
+  .sd-hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
   }
 
-  .sd-hero-content p{
-    font-size:.95rem;
-    line-height:1.5;
+  .sd-hero-content p {
+    font-size: .95rem;
+    line-height: 1.5;
   }
 
   /* CONTENT SPACING */
-  .sd-content{
-    padding:40px 0;
+  .sd-content {
+    padding: 40px 0;
   }
 
   /* LAYOUT → STACK */
-  .sd-layout{
-    grid-template-columns:1fr;
-    gap:28px;
-    padding:36px 0;
+  .sd-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 0;
   }
-  .sd-info{
+
+  .sd-info {
     padding: 0 16px;
   }
 
   /* INFO TEXT */
-  .sd-info p{
-    font-size:.95rem;
+  .sd-info p {
+    font-size: .95rem;
   }
 
-  .sd-points{
-    gap:8px;
-    font-size:.9rem;
+  .sd-points {
+    gap: 8px;
+    font-size: .9rem;
   }
 
   /* FORM CARD */
-  .sd-form{
-    padding:20px 50px;
-    border-radius:18px;
+  .sd-form {
+    padding: 20px 50px;
+    border-radius: 18px;
   }
 
-  .sd-form h3{
-    font-size:18px;
-    margin-bottom:14px;
+  .sd-form h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
   }
 
   /* FORM → SINGLE COLUMN */
-  .sd-form form{
-    grid-template-columns:1fr;
-    gap:12px;
+  .sd-form form {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   /* remove span 2 on mobile */
   .sd-form select,
   .sd-form textarea,
-  .sd-form button{
-    grid-column:span 1;
+  .sd-form button {
+    grid-column: span 1;
   }
 
   /* INPUT SIZE */
   .sd-form input,
   .sd-form select,
-  .sd-form textarea{
-    padding:12px 14px;
-    font-size:13px;
+  .sd-form textarea {
+    padding: 12px 14px;
+    font-size: 13px;
   }
 
-  .sd-form textarea{
-    min-height:100px;
+  .sd-form textarea {
+    min-height: 100px;
   }
 
   /* BUTTON */
-  .sd-form button{
-    padding:14px;
-    font-size:14px;
+  .sd-form button {
+    padding: 14px;
+    font-size: 14px;
   }
 
   /* LABEL spacing fix */
-  .sd-form form label{
-    font-size:12px;
-    margin-bottom:2px;
+  .sd-form form label {
+    font-size: 12px;
+    margin-bottom: 2px;
   }
 }

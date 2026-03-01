@@ -14,10 +14,10 @@ export default function BidsTender() {
           <h1>Bids &amp; Tenders</h1>
           <p className="bt-lead">
             Explore current bid opportunities and collaborate with VRD Groups across
-            janitorial, logistics, supply, and warehousing services.
+            sanitory, logistics, supply, and warehousing services.
           </p>
           <div className="bt-list">
-            <div>Janitorial Services</div>
+            <div>Sanitory Service / Property Management services</div>
             <div>Dedicated Delivery &amp; Logistics</div>
             <div>Material Supply &amp; Procurement</div>
             <div>Warehousing &amp; Distribution</div>
