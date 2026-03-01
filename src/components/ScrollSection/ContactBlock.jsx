@@ -70,7 +70,7 @@ export default function ContactBlock() {
                                 <label>Service</label>
                                 <select name="service" value={form.service} onChange={handleChange}>
                                     <option value="">Select a service…</option>
-                                    <option>Sanitory Service / Property Management</option>
+                                    <option>Property Management</option>
                                     <option>Dedicated Delivery</option>
                                     <option>Material Supply &amp; Procurement</option>
                                     <option>Warehousing &amp; Distribution</option>
