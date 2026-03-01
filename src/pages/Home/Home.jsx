@@ -68,7 +68,7 @@ export default function Home() {
         <p className="hero-description reveal-fade" style={{ animationDelay: '0.9s' }}>
           At VRD Groups, we help businesses reduce operational costs without compromising on quality.
           We deliver high-quality services and premium-grade products that improve efficiency across
-          Ontario and Manitoba.
+          Canada.
         </p>
 
         <div className="hero-actions reveal-fade" style={{ animationDelay: '1.3s' }}>
@@ -81,13 +81,10 @@ export default function Home() {
             <div className="stat-number">5+</div>
             <div className="stat-label">Years Experience</div>
           </div>
+          
           <div className="stat-item">
-            <div className="stat-number">Markham</div>
-            <div className="stat-label">Headquartered</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">ON + MB</div>
-            <div className="stat-label">Service Regions</div>
+            <div className="stat-number">Across
+          Canada</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">Multi</div>

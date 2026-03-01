@@ -13,7 +13,7 @@ export default function Footer() {
             <img src="/LOGO.png" alt="VRD Groups Logo" className="logo-img" />
           </Link>
           <p>
-            VRD Groups provides premium sanitory, logistics, material supply,
+            VRD Groups provides premium Property Management, logistics, material supply,
             and warehousing solutions across Ontario & Manitoba.
           </p>
         </div>

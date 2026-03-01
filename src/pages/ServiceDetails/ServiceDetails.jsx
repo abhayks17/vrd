@@ -3,19 +3,29 @@ import { useParams, Link } from 'react-router-dom'
 import './ServiceDetails.css'
 import Footer from '../../components/Footer/Footer'
 const services = {
-  sanitory: {
-    title: 'Property Management Services',
-    desc: 'VRD Groups delivers top-tier Sanitorial Service / Property Management services across Ontario & Manitoba.',
-    banner: '/jan.jpg',
-    video: '/janitorial.mp4',
-    content: 'Our sanitorial and property management teams deliver reliable daily cleaning, deep sanitation, and facility maintenance tailored to offices, warehouses, and commercial spaces.',
-    points: [
-      'cleaning',
-      'window cleaning',
-      'howling',
-      'sanitary items'
-    ]
-  },
+sanitory: {
+  title: 'Property Management Services',
+  desc: 'VRD Groups provides comprehensive Property Management and Sanitorial Services across Ontario & Manitoba, ensuring properties are efficiently managed, well-maintained, and professionally serviced.',
+  banner: '/jan.jpg',
+  video: '/janitorial.mp4',
+  content: `
+  At VRD Groups, our Property Management Services go beyond routine cleaning. We provide complete oversight and operational management of commercial, industrial, and mixed-use properties. Our team ensures that facilities run smoothly, tenants are supported, and maintenance is handled proactively.
+
+  From day-to-day facility supervision to preventive maintenance planning, vendor coordination, and emergency response management, we act as a trusted partner in protecting and enhancing your property’s value.
+
+  Alongside property management, our sanitorial services include daily cleaning, deep sanitation, window cleaning, waste handling, and hygiene supply management—ensuring your property remains clean, compliant, and welcoming.
+  `,
+  points: [
+    'Full-Service Commercial Property Management',
+    'Preventive & Corrective Maintenance Planning',
+    'Tenant Coordination & Support Services',
+    'Vendor & Contractor Management',
+    'Facility Inspections & Compliance Monitoring',
+    'Snow Clearing , Howling',
+    'Window Cleaning & Exterior Maintenance',
+    'Sanitary Supply Handling'
+  ]
+},
 
   delivery: {
     title: 'Dedicated Delivery Service',

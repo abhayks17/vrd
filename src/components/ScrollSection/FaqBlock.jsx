@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './FaqBlock.css';
 const faqs = [
-    { q: 'What areas do you serve?', a: 'VRD Groups currently operates across Ontario and Manitoba, with headquarters in Markham, Ontario.' },
+    { q: 'What areas do you serve?', a: 'VRD Groups currently operates across Canada.' },
     { q: 'How long has VRD Groups been in business?', a: 'We have been delivering premium services for over 5 years, building a strong reputation for reliability and quality.' },
     { q: 'What services does VRD Groups offer?', a: 'Sanitory Service / Property Management, Dedicated Delivery, Material Supply & Procurement, and Warehousing & Distribution.' },
     { q: 'How do I request a quote?', a: 'Fill out the contact form or call us directly. Our team will respond within 24 hours with a customized proposal.' },

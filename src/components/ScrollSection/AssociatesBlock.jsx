@@ -25,14 +25,14 @@ export default function AssociatesBlock() {
 
   // Load images automatically from public folder
   const images = [
-    "/associates/1.png",
     "/associates/2.png",
     "/associates/3.png",
+    "/associates/8.png",
+    "/associates/1.png",
+    "/associates/7.png",
     "/associates/4.jpeg",
     "/associates/5.png",
     "/associates/6.png",
-    "/associates/7.png",
-    "/associates/8.png",
 
   ];
 
