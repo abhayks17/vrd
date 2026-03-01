@@ -4,7 +4,7 @@ import './ServiceDetails.css'
 import Footer from '../../components/Footer/Footer'
 const services = {
   sanitory: {
-    title: 'Sanitorial Service',
+    title: 'Property Management Services',
     desc: 'VRD Groups delivers top-tier Sanitorial Service / Property Management services across Ontario & Manitoba.',
     banner: '/jan.jpg',
     video: '/janitorial.mp4',

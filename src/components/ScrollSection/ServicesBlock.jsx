@@ -4,8 +4,8 @@ import './ServicesBlock.css'
 
 const services = [
   {
-    id: 'sanitory',
-    title: 'Sanitorial Service',
+    id: 'property-management',
+    title: 'Property Management Services',
     video: '/janitorial.mp4',
     desc: 'VRD Groups delivers top-tier Sanitorial Service / Property Management services across Ontario & Manitoba.'
   },

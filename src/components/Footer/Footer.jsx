@@ -33,7 +33,7 @@ export default function Footer() {
         <div>
           <h4 className="footer-heading">Our Services</h4>
           <ul className="footer-links">
-            <li><Link to="/services/sanitory">Sanitorial Service</Link></li>
+            <li><Link to="/services/sanitory">Property Management Services</Link></li>
             <li><Link to="/services/delivery">Dedicated Delivery</Link></li>
             <li><Link to="/services/material">Material Supply</Link></li>
             <li><Link to="/services/warehousing">Warehousing</Link></li>
