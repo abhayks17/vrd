@@ -60,7 +60,7 @@ export default function Home() {
               Transforming businesses with quality and cost savings
             </span>,
             <span className="hero-line-big">
-              Welcome to <span className="hero-brand">VRD Groups</span>
+              Welcome to VRD Groups
             </span>
           ]}
         />

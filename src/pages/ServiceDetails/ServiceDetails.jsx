@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 const services = {
 sanitory: {
   title: 'Property Management Services',
-  desc: 'VRD Groups provides comprehensive Property Management and Sanitorial Services across Ontario & Manitoba, ensuring properties are efficiently managed, well-maintained, and professionally serviced.',
+  desc: 'VRD Groups provides comprehensive Property Management and Sanitorial Services across Canada, ensuring properties are efficiently managed, well-maintained, and professionally serviced.',
   banner: '/jan.jpg',
   video: '/janitorial.mp4',
   content: `
