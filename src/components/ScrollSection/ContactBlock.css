@@ -1,0 +1,24 @@
+.cb-button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cb-submit,
+.cb-whatsapp {
+  flex: 1;                    /* Equal width */
+  height: 48px;  
+  width:180px;             /* Same height */
+  background: #000;           /* Black */
+  color: #fff;
+  border: none;
+  border-radius: 30px;        /* Rounded pill */
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cb-submit:hover,
+.cb-whatsapp:hover {
+  background: #222;           /* Subtle hover */
+}

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import './ContactBlock.css';
 export default function ContactBlock() {
     const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
     const rootRef = useRef(null);
@@ -80,7 +80,39 @@ export default function ContactBlock() {
                                 <label>Message</label>
                                 <textarea name="message" value={form.message} onChange={handleChange} rows={3} placeholder="Tell us about your requirements…" required />
                             </div>
+                            <div className="cb-button-row">
                             <button type="submit" className="cb-submit">Send Mail →</button>
+                            <button
+    type="button"
+    className="cb-whatsapp"
+    onClick={() => {
+        if (!form.name || !form.email || !form.message) {
+            alert("Please fill in Name, Email, and Message before sending.");
+            return;
+        }
+
+        const message = encodeURIComponent(
+`Hello VRD Groups,
+
+My name is ${form.name}.
+I am interested in ${form.service || 'your services'}.
+
+Message:
+${form.message}
+
+Email: ${form.email}`
+        );
+
+        const whatsappUrl = `https://wa.me/14313886655?text=${message}`;
+
+        window.open(whatsappUrl, '_blank');
+
+        // Optional: Clear form after click
+        setForm({ name: '', email: '', service: '', message: '' });
+    }}
+>
+    Message on WhatsApp →
+</button></div>
                         </form>
                     </div>
 

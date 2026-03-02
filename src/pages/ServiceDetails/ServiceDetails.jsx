@@ -36,10 +36,7 @@ sanitory: {
     points: [
       'Scheduled routes',
       'Last mile delivery',
-      'Our Fleet:',
-      '  5 ton truck freightliner',
-      '  3 ton truck isuzu',
-      '  16 ft ford e450'
+      'Our fleets include Fleet trucks, cargo vans, and minivans to support a wide range of transportation and delivery needs.',
     ]
   },
 
@@ -196,9 +193,47 @@ export default function ServiceDetails() {
               required
             />
 
-            <button type="submit" className="btn btn-accent">
-              Send Mail →
-            </button>
+           <div className="sd-btn-row">
+  <button type="submit" className="btn btn-accent">
+    Send Mail →
+  </button>
+
+  <button
+    type="button"
+    className="btn btn-whatsapp"
+    onClick={(e) => {
+      const form = e.target.closest('form');
+      const fd = new FormData(form);
+
+      const name = fd.get('name');
+      const email = fd.get('email');
+      const serviceName = fd.get('service');
+      const message = fd.get('message');
+
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const text = encodeURIComponent(
+`Hello VRD Groups,
+
+My name is ${name}.
+I am interested in your ${serviceName} service.
+
+Message:
+${message}
+
+Email: ${email}`
+      );
+
+      const whatsappUrl = `https://wa.me/14313886655?text=${text}`;
+      window.open(whatsappUrl, '_blank');
+    }}
+  >
+    Message on WhatsApp →
+  </button>
+</div>
           </form>
         </div>
 
