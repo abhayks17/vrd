@@ -2,23 +2,54 @@
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  height: 90px
 }
 
 .cb-submit,
 .cb-whatsapp {
-  flex: 1;                    /* Equal width */
-  height: 48px;  
-  width:180px;             /* Same height */
-  background: #000;           /* Black */
+  flex: 1;
+  /* Equal width */
+  height: 48px;
+  width: 180px;
+  /* Same height */
+  background: #000;
+  /* Black */
   color: #fff;
   border: none;
-  border-radius: 30px;        /* Rounded pill */
+  border-radius: 30px;
+  /* Rounded pill */
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cb-submit:hover,
 .cb-whatsapp:hover {
-  background: #222;           /* Subtle hover */
+  background: #222;
+  /* Subtle hover */
+}
+
+@media (max-width: 768px) {
+  .cb-button-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cb-submit {
+    width: 60% !important;
+    margin: 0;
+    height: 66px !important;
+    font-size: 0.95rem;
+  }
+
+
+  .cb-whatsapp {
+    width: 80% !important;
+    margin: 0;
+    height: 56px !important;
+    font-size: 0.95rem;
+  }
 }
