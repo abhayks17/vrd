@@ -75,7 +75,7 @@ export default function ServicesBlock() {
         <div className="reveal-up">
           <h2 className="section-title" style={{ color: '#fff' }}>Our Services</h2>
           <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Five years of delivering excellence across Ontario &amp; Manitoba.
+            Five years of delivering excellence across Canada.
           </p>
         </div>
 
