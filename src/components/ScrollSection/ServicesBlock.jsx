@@ -7,7 +7,7 @@ const services = [
     id: 'property-management',
     title: 'Property Management Services',
     video: '/janitorial.mp4',
-    desc: 'VRD Groups delivers top-tier Sanitorial Service / Property Management services across Ontario & Manitoba.'
+    desc: 'VRD Groups delivers top-tier Sanitorial Service / Property Management services across Canada.'
   },
   {
     id: 'delivery',
