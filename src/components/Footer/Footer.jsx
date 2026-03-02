@@ -51,7 +51,7 @@ export default function Footer() {
 
           <div className="footer-contact-item">
             <span className="icon">📞</span>
-            <span>Office: 613-434-4321 Ext # 3</span>
+            <span>Office: 613-434-4321 </span>
           </div>
 
           <div className="footer-contact-item">
