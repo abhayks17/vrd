@@ -14,7 +14,7 @@ export default function Footer() {
           </Link>
           <p>
             VRD Groups provides premium Property Management, logistics, material supply,
-            and warehousing solutions across Ontario & Manitoba.
+            and warehousing solutions across Canada.
           </p>
         </div>
 
